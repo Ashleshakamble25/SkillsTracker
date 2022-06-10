@@ -16,24 +16,68 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func tapToRegister(_ sender: Any) {
+        checkConditions()
     }
     
     @IBAction func tapToLogin(_ sender: Any) {
+        let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(login, animated: true)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    //MARK: Function Check Conditions
+    
+    fileprivate func checkConditions(){
+        if passwordTextField.text ==  " " && confirmPasswordTextField.text == "" || emailTextField.text == ""   {
+                       openAlert(title: "Alert", message: "Please enter valid data.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                    }
+           else if let password = passwordTextField.text, let email = emailTextField.text, let confirmPassword = confirmPasswordTextField.text {
+                if !email.isEmail{
+                        openAlert(title: "Alert", message: "Please enter valid Email.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                }
+                else if email == "" {
+                        openAlert(title: "Alert", message: "Please enter Email.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                }
+                else {
+                    let result = true
+                    switch result {
+                    case password == "" :
+                        openAlert(title: "Alert", message: "Please enter Password.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                        break
+                        
+                    case !password.isValidPassword:
+                        openAlert(title: "Alert", message: "Please enter valid Password!", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                        break
+                        
+                    case !password.isValidPassword && (password == confirmPassword):
+                        openAlert(title: "Alert", message: "Please enter valid Password!", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                        break
+                        
+                    case password != confirmPassword:
+                        openAlert(title: "Alert", message: "Password is not matching!", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                        break
+                        
+                    default:
+                        return
+                    }
+                }
+}
+}
 }

@@ -10,21 +10,20 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailtextField: UITextField!
-    
     @IBOutlet weak var theStack: UIStackView!
     @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    
-     @IBAction func tapToLogin(_ sender: Any) {
+    @IBAction func tapToLogin(_ sender: Any) {
+         checkConditions()
      }
     
     @IBAction func forgotPassword(_ sender: Any) {
+        let forgotPassword = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
+        navigationController?.pushViewController(forgotPassword, animated: true)
     }
     
     @IBAction func tapToSignUp(_ sender: Any) {
@@ -32,14 +31,40 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(signup, animated: true)
     }
     
-    /*
-     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    //MARK: Function Check Conditions
+        
+        fileprivate func checkConditions(){
+            if passwordTextField.text ==  " " || emailtextField.text == ""   {
+                        openAlert(title: "Alert", message: "Please enter valid data.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                             print("Okay clicked!")
+                         }])
+                     }
+           else if let email = emailtextField.text, let password = passwordTextField.text {
+                if !email.isEmail {
+                    openAlert(title: "Alert", message: "Invalid Username", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                        print("Okay clicked!")
+                    }])
+                }
+            else if email == "" {
+                    openAlert(title: "Alert", message: "Please enter Username.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                        print("Okay clicked!")
+                    }])
+            }
+                else if !password.isValidPassword{
+                    openAlert(title: "Alert", message: "Please enter valid Password!", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                        print("Okay clicked!")
+                    }])
+            }
+            else if password == "" {
+                    openAlert(title: "Alert", message: "Please enter Password.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                        print("Okay clicked!")
+                    }])
+            }
+            else {
+                
+                return
+            }
+                
+            }
+}
 }
