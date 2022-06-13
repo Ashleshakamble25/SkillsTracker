@@ -3,16 +3,6 @@
 //  SkillsTracker
 //
 //  Created by Ashlesha Kamble on 09/06/22.
-/* code for reset password:- Auth.auth().sendPasswordReset(withEmail: emailId.text ?? "") { error in
-if let error = error
-{
-    print("Error to reset password")
-    print(error.localizedDescription)
-    return
-}
-print("Password reset mail has been sent")
-self.navigationController?.popToRootViewController(animated: true)
-}*/
 
 import UIKit
 import FirebaseAuth
@@ -22,15 +12,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailtextField: UITextField!
     @IBOutlet weak var theStack: UIStackView!
     @IBOutlet weak var passwordTextField: UITextField!
+    var emailField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.keyboardTaparound()
     }
     
     @IBAction func tapToLogin(_ sender: Any) {
          checkConditions()
         Auth.auth().signIn(withEmail: emailtextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
             if let u = authResult?.user
             {
                 print(u)
@@ -40,20 +31,47 @@ class LoginViewController: UIViewController {
             }
             else
             {
-               // print(error?.localizedDescription)
                 print("User Not Found")
                 self?.openAlert(title: "Alert", message: "User not found", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in
                     print("Ok Cliked")
                 }])
             }
-          // ...
         }
      }
     
     @IBAction func forgotPassword(_ sender: Any) {
-        let forgotPassword = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
-        navigationController?.pushViewController(forgotPassword, animated: true)
+        theAlert()
     }
+    
+    func theAlert() {
+        let alert = UIAlertController(title: "Enter your registered Email.", message: "A link to change password will be send to your Email.", preferredStyle: .alert)
+        
+        alert.addTextField { field in
+            self.emailField = field
+            field.placeholder = "Email"
+            field.keyboardType = .emailAddress
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
+            
+            if let email = self.emailField?.text, !email.isEmpty {
+                Auth.auth().sendPasswordReset(withEmail: self.emailField!.text ?? "") { error in
+                if let error = error
+                {
+                    print("Error to reset password")
+                    print(error.localizedDescription)
+                    return
+                }
+                print("Password reset mail has been sent")
+                
+             }
+            }
+         }
+        ))
+        present(alert, animated: true)
+    }
+                                      
     
     @IBAction func tapToSignUp(_ sender: Any) {
         let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
