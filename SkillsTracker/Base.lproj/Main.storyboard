@@ -323,7 +323,7 @@
                                                     <constraint firstAttribute="height" constant="94" id="QBn-3p-dwO"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Password must contain 8 characters including atleast uppercase, lowercase, numeric and symbolic characters.">
+                                                    <fragment content="Enter your email id to reset your password">
                                                         <attributes>
                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <font key="NSFont" metaFont="system" size="17"/>
@@ -350,7 +350,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvb-7h-JTl">
-                                                <rect key="frame" x="40" y="524" width="334" height="50"/>
+                                                <rect key="frame" x="40" y="594" width="334" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Vj1-GA-5J9"/>
                                                 </constraints>
@@ -367,6 +367,14 @@
                                                     <action selector="tapToResetPassword:" destination="bkU-WJ-e3B" eventType="touchUpInside" id="o4B-nD-AmC"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gph-Cw-REo" customClass="TextFields" customModule="SkillsTracker" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="504" width="334" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="vwT-8u-4p9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -380,11 +388,14 @@
                                             <constraint firstItem="olY-cl-g6r" firstAttribute="leading" secondItem="C5J-Pb-7i7" secondAttribute="leading" id="YFS-BV-FHg"/>
                                             <constraint firstItem="C5J-Pb-7i7" firstAttribute="leading" secondItem="sZy-b5-iCT" secondAttribute="leading" constant="40" id="bxG-k3-Xkv"/>
                                             <constraint firstAttribute="trailing" secondItem="C5J-Pb-7i7" secondAttribute="trailing" constant="40" id="fXz-Dd-AZg"/>
+                                            <constraint firstItem="cvb-7h-JTl" firstAttribute="top" secondItem="gph-Cw-REo" secondAttribute="bottom" constant="40" id="ikP-7o-owN"/>
                                             <constraint firstItem="cvb-7h-JTl" firstAttribute="trailing" secondItem="C5J-Pb-7i7" secondAttribute="trailing" id="jIy-ED-j48"/>
                                             <constraint firstItem="olY-cl-g6r" firstAttribute="trailing" secondItem="C5J-Pb-7i7" secondAttribute="trailing" id="kV8-Qm-FpG"/>
                                             <constraint firstItem="olY-cl-g6r" firstAttribute="top" secondItem="c9z-f4-ZaZ" secondAttribute="bottom" constant="30" id="lqT-ao-BeU"/>
-                                            <constraint firstItem="cvb-7h-JTl" firstAttribute="top" secondItem="VmD-tt-Frh" secondAttribute="bottom" constant="50" id="s1B-hb-yml"/>
                                             <constraint firstAttribute="height" constant="848" id="tIR-Yx-7B8"/>
+                                            <constraint firstItem="gph-Cw-REo" firstAttribute="leading" secondItem="VmD-tt-Frh" secondAttribute="leading" id="uHp-Dv-hnV"/>
+                                            <constraint firstItem="gph-Cw-REo" firstAttribute="trailing" secondItem="VmD-tt-Frh" secondAttribute="trailing" id="uow-WU-mpL"/>
+                                            <constraint firstItem="gph-Cw-REo" firstAttribute="top" secondItem="VmD-tt-Frh" secondAttribute="bottom" constant="30" id="uzE-NG-J26"/>
                                             <constraint firstItem="c9z-f4-ZaZ" firstAttribute="trailing" secondItem="C5J-Pb-7i7" secondAttribute="trailing" id="zuh-ct-LWk"/>
                                         </constraints>
                                     </view>
@@ -409,12 +420,43 @@
                     </view>
                     <connections>
                         <outlet property="confirmPassword" destination="VmD-tt-Frh" id="Vse-zI-eAo"/>
+                        <outlet property="emailId" destination="gph-Cw-REo" id="7Ic-QJ-DtL"/>
                         <outlet property="newPassword" destination="olY-cl-g6r" id="xQO-lG-ndz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NS5-oh-BVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2237.68115942029" y="80.357142857142847"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="FXw-ZB-kGp">
+            <objects>
+                <viewController storyboardIdentifier="DashboardViewController" id="nGR-3P-web" customClass="DashboardViewController" customModule="SkillsTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wy5-Tk-72Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gq9-r0-lEd">
+                                <rect key="frame" x="165.33333333333334" y="428" width="83.333333333333343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ioH-08-l8y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JDp-nX-hUM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gq9-r0-lEd" firstAttribute="centerY" secondItem="wy5-Tk-72Y" secondAttribute="centerY" id="Rsc-rg-ngq"/>
+                            <constraint firstItem="Gq9-r0-lEd" firstAttribute="centerX" secondItem="wy5-Tk-72Y" secondAttribute="centerX" id="udV-fe-3d4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GxC-Gw-3aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2967" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o0D-nt-gCg">

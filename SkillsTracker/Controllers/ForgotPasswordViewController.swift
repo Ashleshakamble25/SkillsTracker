@@ -6,18 +6,31 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
 
     @IBOutlet weak var newPassword: TextFields!
     @IBOutlet weak var confirmPassword: TextFields!
+    @IBOutlet weak var emailId: TextFields!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func tapToResetPassword(_ sender: Any) {
-        checkConditions()
+        //checkConditions()
+        Auth.auth().sendPasswordReset(withEmail: emailId.text ?? "") { error in
+            if let error = error
+            {
+                print("Error to reset password")
+                print(error.localizedDescription)
+                return
+            }
+            print("Password reset mail has been sent")
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
     }
     
     //MARK: Function Check Conditions

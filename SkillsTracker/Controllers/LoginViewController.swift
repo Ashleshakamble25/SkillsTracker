@@ -3,9 +3,19 @@
 //  SkillsTracker
 //
 //  Created by Ashlesha Kamble on 09/06/22.
-//
+/* code for reset password:- Auth.auth().sendPasswordReset(withEmail: emailId.text ?? "") { error in
+if let error = error
+{
+    print("Error to reset password")
+    print(error.localizedDescription)
+    return
+}
+print("Password reset mail has been sent")
+self.navigationController?.popToRootViewController(animated: true)
+}*/
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -19,6 +29,25 @@ class LoginViewController: UIViewController {
     
     @IBAction func tapToLogin(_ sender: Any) {
          checkConditions()
+        Auth.auth().signIn(withEmail: emailtextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+            if let u = authResult?.user
+            {
+                print(u)
+                print("User Found")
+                let dashoboardVC = self?.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+                self?.navigationController?.pushViewController(dashoboardVC, animated: true)
+            }
+            else
+            {
+               // print(error?.localizedDescription)
+                print("User Not Found")
+                self?.openAlert(title: "Alert", message: "User not found", alertStyle: .alert, actionTitles: ["Ok"], actionStyles: [.default], actions: [{ _ in
+                    print("Ok Cliked")
+                }])
+            }
+          // ...
+        }
      }
     
     @IBAction func forgotPassword(_ sender: Any) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
@@ -20,6 +21,19 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tapToRegister(_ sender: Any) {
         checkConditions()
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
+          // ...
+            if let u = authResult?.user
+            {
+                print(u)
+                print("User Register")
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            else
+            {
+                print("Problem with user registration")
+            }
+        }
     }
     
     @IBAction func tapToLogin(_ sender: Any) {
