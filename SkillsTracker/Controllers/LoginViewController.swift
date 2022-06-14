@@ -26,8 +26,7 @@ class LoginViewController: UIViewController {
             {
                 print(u)
                 print("User Found")
-                let dashoboardVC = self?.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
-                self?.navigationController?.pushViewController(dashoboardVC, animated: true)
+                // navigate to dashboard
             }
             else
             {
