@@ -23,6 +23,7 @@
 		D2B830DE28535AFB009BBA56 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B830DD28535AFB009BBA56 /* DashboardViewController.swift */; };
 		D2B830E028535BFC009BBA56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2B830DF28535BFC009BBA56 /* GoogleService-Info.plist */; };
 		FD8A4F7428572B710002D231 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A4F7328572B710002D231 /* CreateProfileViewController.swift */; };
+		FDD884B128586F9C00122F70 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD884B028586F9C00122F70 /* EmployeeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D2B830DF28535BFC009BBA56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FBF1C0221269A93E4F45E029 /* Pods_SkillsTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkillsTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8A4F7328572B710002D231 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		FDD884B028586F9C00122F70 /* EmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				7C78EDF2285201A600240F76 /* SignUpViewController.swift */,
 				7C38B227285341160076C179 /* ForgotPasswordViewController.swift */,
 				FD8A4F7328572B710002D231 /* CreateProfileViewController.swift */,
+				FDD884B028586F9C00122F70 /* EmployeeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				7C38B22428531B270076C179 /* String+Extension.swift in Sources */,
 				D2B830DE28535AFB009BBA56 /* DashboardViewController.swift in Sources */,
 				7C78EDDE2851EFF700240F76 /* SceneDelegate.swift in Sources */,
+				FDD884B128586F9C00122F70 /* EmployeeViewController.swift in Sources */,
 				D2B830DC2853598D009BBA56 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

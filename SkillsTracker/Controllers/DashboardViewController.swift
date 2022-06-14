@@ -14,6 +14,9 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
     }
     
@@ -43,6 +46,8 @@ extension DashboardViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeSkills", for: indexPath)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "EmployeeViewController") as! EmployeeViewController
+        navigationController?.pushViewController(vc, animated: true)
         return cell
     }
     
