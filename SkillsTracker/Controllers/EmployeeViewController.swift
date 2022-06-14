@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EmployeeViewController: UIViewController{
    
     
     @IBOutlet weak var employeeTableView: UITableView!
@@ -15,22 +15,20 @@ class EmployeeViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        employeeTableView.delegate = self
-        employeeTableView.dataSource = self
-
+       
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = employeeTableView.dequeueReusableCell(withIdentifier: "EmployeeName", for: indexPath)
-        
-        
-    }
-    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = employeeTableView.dequeueReusableCell(withIdentifier: "EmployeeName", for: indexPath)
+//
+//
+//    }
+//
 
     
 
