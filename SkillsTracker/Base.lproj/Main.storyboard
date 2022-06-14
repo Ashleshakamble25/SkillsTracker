@@ -622,44 +622,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="myq-Eq-tZu">
-                                <rect key="frame" x="0.0" y="64" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2U2-rQ-lzU"/>
+                                    <constraint firstAttribute="height" constant="60" id="mWj-f2-L2v"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Aew-3c-Zzg">
-                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.099740514739999994" green="0.52002468180000005" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmployeeSkills" textLabel="Jao-LF-xLU" style="IBUITableViewCellStyleDefault" id="uNI-ma-FBZ">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNI-ma-FBZ" id="Frk-eZ-ieZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jao-LF-xLU">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JDp-nX-hUM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="trailing" secondItem="JDp-nX-hUM" secondAttribute="trailing" id="KVY-pc-7AO"/>
-                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="top" secondItem="JDp-nX-hUM" secondAttribute="top" constant="90" id="V8h-I3-myF"/>
-                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="leading" secondItem="JDp-nX-hUM" secondAttribute="leading" id="ZwJ-32-0fz"/>
-                            <constraint firstItem="myq-Eq-tZu" firstAttribute="top" secondItem="JDp-nX-hUM" secondAttribute="top" constant="20" id="a5b-t0-hyI"/>
-                            <constraint firstItem="myq-Eq-tZu" firstAttribute="trailing" secondItem="JDp-nX-hUM" secondAttribute="trailing" id="fEq-WE-hhA"/>
-                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="bottom" secondItem="JDp-nX-hUM" secondAttribute="bottom" id="iBs-B7-kMK"/>
-                            <constraint firstItem="myq-Eq-tZu" firstAttribute="leading" secondItem="JDp-nX-hUM" secondAttribute="leading" id="slr-p3-jhD"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="bottom" secondItem="JDp-nX-hUM" secondAttribute="bottom" id="0B0-QZ-LxD"/>
+                            <constraint firstItem="myq-Eq-tZu" firstAttribute="leading" secondItem="JDp-nX-hUM" secondAttribute="leading" id="7tx-Ld-4aH"/>
+                            <constraint firstItem="myq-Eq-tZu" firstAttribute="trailing" secondItem="JDp-nX-hUM" secondAttribute="trailing" id="Dsp-LL-K3Y"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="top" secondItem="myq-Eq-tZu" secondAttribute="bottom" id="LhI-FS-D3K"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="leading" secondItem="JDp-nX-hUM" secondAttribute="leading" id="PZn-is-ttJ"/>
+                            <constraint firstItem="myq-Eq-tZu" firstAttribute="top" secondItem="JDp-nX-hUM" secondAttribute="top" id="gei-27-Ux7"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="trailing" secondItem="JDp-nX-hUM" secondAttribute="trailing" id="kcp-sl-Hph"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gPx-li-3Vy">
-                        <barButtonItem key="leftBarButtonItem" title="Log out" id="tUB-bG-fsC">
-                            <connections>
-                                <action selector="logOutTapped:" destination="nGR-3P-web" id="dHT-2v-naO"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Update Profile" id="R3J-gu-aKu">
+                        <barButtonItem key="leftBarButtonItem" title="Update Profile" id="R3J-gu-aKu">
+                            <color key="tintColor" systemColor="systemTealColor"/>
                             <connections>
                                 <action selector="updateProfileTapped:" destination="nGR-3P-web" id="RGn-fU-hSb"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="tUB-bG-fsC">
+                            <color key="tintColor" systemColor="systemTealColor"/>
+                            <connections>
+                                <action selector="logOutTapped:" destination="nGR-3P-web" id="dHT-2v-naO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="myq-Eq-tZu" id="dgb-5b-bMJ"/>
-                        <outlet property="tableView" destination="Aew-3c-Zzg" id="ZCt-yS-eOd"/>
+                        <outlet property="searchBar" destination="myq-Eq-tZu" id="XmD-sj-rJL"/>
+                        <outlet property="tableView" destination="Aew-3c-Zzg" id="Xpf-OZ-hh6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxC-Gw-3aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -27,6 +27,7 @@ class CreateProfileViewController: UIViewController {
     }
     
     @IBAction func addSkillTapped(_ sender: UIButton) {
+        
         didTapAdd()
         
     }
@@ -44,13 +45,12 @@ class CreateProfileViewController: UIViewController {
 
        let alert = UIAlertController(title: "New Skill", message: "Enter New Skill", preferredStyle: .alert)
        alert.addTextField(configurationHandler: nil)
-      alert.addAction(UIAlertAction(title: "Add", style: .cancel, handler: { [weak self]_ in
+       alert.addAction(UIAlertAction(title: "Add", style: .cancel, handler: { [weak self]_ in
            guard let field = alert.textFields?.first,let text = field.text ,text.isEmpty else {                return
             }
            //database command
        }))
         present(alert, animated: true, completion: nil)
    }
-//
-
+  
 }
