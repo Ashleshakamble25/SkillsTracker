@@ -519,7 +519,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="q2t-6d-0bn"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uW5-33-x8L">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="uW5-33-x8L">
                                                         <rect key="frame" x="0.0" y="44.666666030883789" width="334" height="43.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uW5-33-x8L" id="H5k-dx-DX9">
@@ -621,27 +621,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gq9-r0-lEd">
-                                <rect key="frame" x="161.66666666666666" y="428" width="91" height="40"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="myq-Eq-tZu">
+                                <rect key="frame" x="0.0" y="64" width="414" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ioH-08-l8y"/>
+                                    <constraint firstAttribute="height" constant="60" id="2U2-rQ-lzU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Aew-3c-Zzg">
+                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JDp-nX-hUM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Gq9-r0-lEd" firstAttribute="centerY" secondItem="wy5-Tk-72Y" secondAttribute="centerY" id="Rsc-rg-ngq"/>
-                            <constraint firstItem="Gq9-r0-lEd" firstAttribute="centerX" secondItem="wy5-Tk-72Y" secondAttribute="centerX" id="udV-fe-3d4"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="trailing" secondItem="JDp-nX-hUM" secondAttribute="trailing" id="KVY-pc-7AO"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="top" secondItem="JDp-nX-hUM" secondAttribute="top" constant="90" id="V8h-I3-myF"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="leading" secondItem="JDp-nX-hUM" secondAttribute="leading" id="ZwJ-32-0fz"/>
+                            <constraint firstItem="myq-Eq-tZu" firstAttribute="top" secondItem="JDp-nX-hUM" secondAttribute="top" constant="20" id="a5b-t0-hyI"/>
+                            <constraint firstItem="myq-Eq-tZu" firstAttribute="trailing" secondItem="JDp-nX-hUM" secondAttribute="trailing" id="fEq-WE-hhA"/>
+                            <constraint firstItem="Aew-3c-Zzg" firstAttribute="bottom" secondItem="JDp-nX-hUM" secondAttribute="bottom" id="iBs-B7-kMK"/>
+                            <constraint firstItem="myq-Eq-tZu" firstAttribute="leading" secondItem="JDp-nX-hUM" secondAttribute="leading" id="slr-p3-jhD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gPx-li-3Vy">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="tUB-bG-fsC">
+                            <connections>
+                                <action selector="logOutTapped:" destination="nGR-3P-web" id="dHT-2v-naO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update Profile" id="R3J-gu-aKu">
+                            <connections>
+                                <action selector="updateProfileTapped:" destination="nGR-3P-web" id="RGn-fU-hSb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="myq-Eq-tZu" id="dgb-5b-bMJ"/>
+                        <outlet property="tableView" destination="Aew-3c-Zzg" id="ZCt-yS-eOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxC-Gw-3aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3603" y="76"/>
+            <point key="canvasLocation" x="3603" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o0D-nt-gCg">

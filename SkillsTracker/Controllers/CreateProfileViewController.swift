@@ -28,13 +28,20 @@ class CreateProfileViewController: UIViewController {
     
     @IBAction func addSkillTapped(_ sender: UIButton) {
         didTapAdd()
+        
     }
     
     @IBAction func saveTapped(_ sender: UIButton) {
+        
+        let dashBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+        navigationController?.pushViewController(dashBoardVC, animated: true)
+        
+        
+        
     }
     
     func didTapAdd() {
-       
+
        let alert = UIAlertController(title: "New Skill", message: "Enter New Skill", preferredStyle: .alert)
        alert.addTextField(configurationHandler: nil)
       alert.addAction(UIAlertAction(title: "Add", style: .cancel, handler: { [weak self]_ in
@@ -44,6 +51,6 @@ class CreateProfileViewController: UIViewController {
        }))
         present(alert, animated: true, completion: nil)
    }
-    
+//
 
 }
