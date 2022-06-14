@@ -35,8 +35,7 @@ class LoginViewController: UIViewController {
             {
                 print(u)
                 print("User Found")
-                let createProfileVC = self?.storyboard?.instantiateViewController(withIdentifier: "CreateProfileViewController") as! CreateProfileViewController
-                self?.navigationController?.pushViewController(createProfileVC, animated: true)
+                // Navigate to dashboard
             }
             else
             {

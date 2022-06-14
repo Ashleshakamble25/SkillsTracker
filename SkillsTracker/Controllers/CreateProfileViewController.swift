@@ -34,8 +34,6 @@ class CreateProfileViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: UIButton) {
         
-        let dashBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
-        navigationController?.pushViewController(dashBoardVC, animated: true)
         
         
         
